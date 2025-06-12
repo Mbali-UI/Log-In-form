@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title> Mbali | Log in Form</title>
+    <link rel="stylesheet" href="stylesheet.css">
+    <style>
+        #successMessage {
+            font-size: 14px;
+            margin-top: 10px;
+            padding: 5px;
+            display: block;
+        }
+    </style>
+</head>
+<body>
+
+    <video src="videos/Places_1.mp4" autoplay loop muted></video>
+    
+    <section>
+    <div class = "login-box">
+        <form action="" onsubmit="verifyUser(event)">
+        <H3>Log in or Sign Up</H3> 
+
+    <div class="input-box">
+        <span class="icon">
+            <ion-icon name="person-outline"></ion-icon></span>
+        <label for="usernameInput">Username:</label>
+        <input type="text" id="usernameInput" required/>
+    </div>
+
+    <div class="input-box">  
+        <span class="icon">
+            <ion-icon name="lock-open-outline"></ion-icon></span>  
+        <label for="passwordInput">Password:</label>
+        <input type="password" id="passwordInput" required/>
+    </div>
+        <br>
+
+    <div class="remember-forgot">
+        <Label><input type="checkbox"> Remember Me </Label>
+        <a href="#">Forgot Password?</a> 
+    </div>
+
+       <br>
+    
+    
+       <button type="submit" onclick="verifyUser()">Log In</button>
+       <p id="successMessage"></p>
+        
+     <div class="register-link">
+        <p>Don't have an account? <a href="#">Sign Up</a></p> <br>
+        <p>By logging in, you agree to our <a href="#"> Terms of Service</a> & <a href="#">Privacy Policy</a>.</p>
+    </div>
+
+    </form>
+</section>
+
+<script type="module" src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.esm.js"></script>
+<script nomodule src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.js"></script>
+
+
+    <script>
+
+        // This function is called when the user clicks the "Log In" link
+        function verifyUser(){
+           event.preventDefault(); // This stops the form from submitting
+           var username = document.getElementById("usernameInput").value;
+           var password = document.getElementById("passwordInput").value;
+           
+           checkUserCreds(username, password);
+
+        }
+
+        function checkUserCreds(username, password) {
+            var systemUsername = "Mbali";
+            var systemPassword = "1026";
+
+            if (username === systemUsername && password === systemPassword){
+                document.getElementById("successMessage").innerHTML = "Login successful!";
+                document.getElementById("successMessage").style.color = "green";
+            } else{
+                document.getElementById("successMessage").innerHTML = "Login failed. Please check your username & password.";
+                document.getElementById("successMessage").style.color = "red";
+            }
+        }
+
+        
+
+    </script>
+    
+</body>
+</html>
